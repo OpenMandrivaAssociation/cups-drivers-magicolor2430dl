@@ -3,7 +3,7 @@
 Summary:	Cups Driver for KONICA MINOLTA magicolor 2430 DL
 Name:		cups-drivers-%{rname}
 Version:	1.6.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		System/Printing
 URL:		http://printer.konicaminolta.net/
@@ -22,9 +22,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 %description
 This package contains KONICA MINOLTA CUPS LavaFlow stream(PCL-like) filter
 rastertokm2430dl and the PPD file. The filter converts CUPS raster data to
-KONICA MINOLTA LavaFlow stream, it uses jbig for compression and littleCMS
-for colormatching. For latest version of this package and source code, please
-check Website http://printer.konicaminolta.net/
+KONICA MINOLTA LavaFlow stream.
 
 This package contains CUPS drivers (PPD) for the following printers:
 
