@@ -1,0 +1,41 @@
+--- configure.in	2007-02-28 23:42:54.000000000 +0100
++++ configure.in.oden	2007-08-12 18:23:09.000000000 +0200
+@@ -87,28 +87,20 @@
+ AC_CHECK_LIB(cups, ppdOpenFile)
+ AC_CHECK_LIB([cupsimage], [cupsRasterReadHeader])
+ AC_CHECK_LIB([jbig], [jbg_enc_init],
+-if test -f "/usr/lib64/libjbig.a"; then
+-	LIBJBIG="/usr/lib64/libjbig.a"
+-elif test -f "/usr/lib/libjbig.a"; then
+-	LIBJBIG="/usr/lib/libjbig.a"
+-elif test -f "/usr/local/lib64/libjbig.a"; then
+-	LIBJBIG="/usr/local/lib64/libjbig.a"
+-else
+-	LIBJBIG="/usr/local/lib/libjbig.a"
++if test -f "/usr/lib64/libjbig.so"; then
++	LIBJBIG="-ljbig"
++elif test -f "/usr/lib/libjbig.so"; then
++	LIBJBIG="-ljbig"
+ fi,
+-[AC_MSG_ERROR([Could not find libjbig.a])])
++[AC_MSG_ERROR([Could not find -ljbig])])
+ AC_SUBST(LIBJBIG)
+ AC_CHECK_LIB([lcms], [cmsCreateTransform],
+-if test -f "/usr/lib64/liblcms.a"; then
+-	LIBLCMS="/usr/lib64/liblcms.a"
+-elif test -f "/usr/lib/liblcms.a"; then
+-	LIBLCMS="/usr/lib/liblcms.a"
+-elif test -f "/usr/local/lib64/liblcms.a"; then
+-	LIBLCMS="/usr/local/lib64/liblcms.a"
+-else
+-	LIBLCMS="/usr/local/lib/liblcms.a"
++if test -f "/usr/lib64/liblcms.so"; then
++	LIBLCMS="-llcms"
++elif test -f "/usr/lib/liblcms.so"; then
++	LIBLCMS="-llcms"
+ fi,
+-[AC_MSG_ERROR([Could not find liblcms.a])])
++[AC_MSG_ERROR([Could not find -llcms])])
+ AC_SUBST(LIBLCMS)
+ 
+ # Checks for header files.
