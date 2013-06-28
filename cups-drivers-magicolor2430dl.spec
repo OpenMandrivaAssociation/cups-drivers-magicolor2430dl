@@ -32,7 +32,7 @@ This package contains CUPS drivers (PPD) for the following printers:
 %patch1 -p1 -b .am113~
 
 # Fix copy of CUPS headers in kmlf.h
-sed -i -e 's:\bcups_strlcpy:_cups_strlcpy:g' src/kmlf.h
+perl -pi -e 's:\bcups_strlcpy:_cups_strlcpy:g' src/kmlf.h
 
 # Remove asterisks from group names in PPD file
 gzip -dc src/km_en.ppd.gz | perl -p -e 's/(Group:\s+)\*/$1/g' | gzip > src/km_en.tmp.ppd.gz && mv -f src/km_en.tmp.ppd.gz src/km_en.ppd.gz
