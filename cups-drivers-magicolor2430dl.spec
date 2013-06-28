@@ -41,7 +41,7 @@ gzip -dc src/km_en.ppd.gz | perl -p -e 's/(Group:\s+)\*/$1/g' | gzip > src/km_en
 gzip -dc src/km_en.ppd.gz | perl -p -e 's:2430(\s*DL):2300$1:g' | gzip > src/km2300dl.ppd.gz
 
 # Determine the directory for the CUPS filters using the correct method
-perl -pi -e 's:(CUPS_SERVERBIN)="\$libdir/cups":$1`cups-config --serverbin`:' configure*
+perl -pi -e 's:(CUPS_SERVERBIN=)"\$libdir/cups":$1`cups-config --serverbin`:' configure*
 
 rm -f configure
 autoreconf -fi
