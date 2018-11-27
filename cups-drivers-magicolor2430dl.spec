@@ -3,13 +3,14 @@
 Summary:	Cups Driver for KONICA MINOLTA magicolor 2430 DL
 Name:		cups-drivers-%{rname}
 Version:	1.6.1
-Release:	26
+Release:	27
 License:	GPLv2
 Group:		System/Printing
 URL:		http://printer.konicaminolta.net/
 Source0:	magicolor2430DL-%{version}.tar.gz
 Patch0:		magicolor2430DL-shared_system_libs.diff
 Patch1:		magicolor-automake-1.13.patch
+Patch2:		magicolor-cups-2.2.patch
 
 BuildRequires:	cups-devel
 BuildRequires:	jbig-devel
@@ -30,6 +31,7 @@ This package contains CUPS drivers (PPD) for the following printers:
 %setup -q -n magicolor2430DL-%{version}
 %patch0 -p0
 %patch1 -p1 -b .am113~
+%patch2 -p1 -b .cups22~
 
 # Fix copy of CUPS headers in kmlf.h
 perl -pi -e 's:\bcups_strlcpy:_cups_strlcpy:g' src/kmlf.h
