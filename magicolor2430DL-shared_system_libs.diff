@@ -20,7 +20,7 @@
 -[AC_MSG_ERROR([Could not find libjbig.a])])
 +[AC_MSG_ERROR([Could not find -ljbig])])
  AC_SUBST(LIBJBIG)
- AC_CHECK_LIB([lcms], [cmsCreateTransform],
+-AC_CHECK_LIB([lcms], [cmsCreateTransform],
 -if test -f "/usr/lib64/liblcms.a"; then
 -	LIBLCMS="/usr/lib64/liblcms.a"
 -elif test -f "/usr/lib/liblcms.a"; then
@@ -29,13 +29,23 @@
 -	LIBLCMS="/usr/local/lib64/liblcms.a"
 -else
 -	LIBLCMS="/usr/local/lib/liblcms.a"
-+if test -f "/usr/lib64/liblcms.so"; then
-+	LIBLCMS="-llcms"
-+elif test -f "/usr/lib/liblcms.so"; then
-+	LIBLCMS="-llcms"
++AC_CHECK_LIB([lcms2], [cmsCreateTransform],
++if test -f "/usr/lib64/liblcms2.so"; then
++	LIBLCMS="-llcms2"
++elif test -f "/usr/lib/liblcms2.so"; then
++	LIBLCMS="-llcms2"
  fi,
 -[AC_MSG_ERROR([Could not find liblcms.a])])
-+[AC_MSG_ERROR([Could not find -llcms])])
++[AC_MSG_ERROR([Could not find -llcms2])])
  AC_SUBST(LIBLCMS)
  
  # Checks for header files.
+@@ -106,7 +106,7 @@ AC_SUBST(LIBLCMS)
+ # Checks for header files.
+ AC_HEADER_STDC
+ AC_CHECK_HEADERS([fcntl.h limits.h stdlib.h string.h unistd.h])
+-AC_CHECK_HEADERS([lcms.h icc34.h jbig.h])
++AC_CHECK_HEADERS([lcms2.h icc34.h jbig.h])
+ 
+ # Checks for typedefs, structures, and compiler characteristics.
+ AC_C_CONST

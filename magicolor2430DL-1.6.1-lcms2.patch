@@ -1,0 +1,50 @@
+diff -up ./src/bmp.c.orig ./src/bmp.c
+--- ./src/bmp.c.orig	2018-05-31 20:37:41.518820839 +0300
++++ ./src/bmp.c	2018-05-31 20:38:04.547892238 +0300
+@@ -6,7 +6,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <cups/raster.h>
+-#include "lcms.h"
++#include "lcms2.h"
+ #include "kmlf.h"
+ 
+ #if WORDS_BIGENDIAN
+diff -up ./src/kmlf.h.orig ./src/kmlf.h
+--- ./src/kmlf.h.orig	2018-05-31 20:38:11.198913006 +0300
++++ ./src/kmlf.h	2018-05-31 20:38:54.956051218 +0300
+@@ -1,18 +1,11 @@
+ #ifndef KMLF_H
+ #define KMLF_H
+ #include <limits.h>
++#include <stdint.h>
+ 
+-
+-#if 0
+-typedef unsigned short WORD;
+-typedef unsigned char BYTE;
+-
+-#if (UINT_MAX==0xFFFFFFFF)
+-typedef unsigned int DWORD;
+-#else
+-typedef unsigned long DWORD;
+-#endif
+-#endif
++typedef uint32_t DWORD;   // DWORD = unsigned 32 bit value
++typedef uint16_t WORD;    // WORD = unsigned 16 bit value
++typedef uint8_t BYTE;     // BYTE = unsigned 8 bit value
+ 
+ #pragma pack(1)
+ typedef struct _HT_HEADER{
+diff -up ./src/rastertokmlf.c.orig ./src/rastertokmlf.c
+--- ./src/rastertokmlf.c.orig	2018-05-31 20:37:41.517820836 +0300
++++ ./src/rastertokmlf.c	2018-05-31 20:37:54.930862325 +0300
+@@ -63,7 +63,7 @@
+ #include <signal.h>
+ #include <sys/utsname.h>
+ #include "jbig.h"
+-#include "lcms.h"
++#include "lcms2.h"
+ #include "kmlf.h"
+ 
+ /*
