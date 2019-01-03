@@ -16,7 +16,7 @@ Patch3:		magicolor2430DL-1.6.1-lcms2.patch
 
 BuildRequires:	cups-devel
 BuildRequires:	jbig-devel
-BuildRequires:	pkgconfig(lcms)
+BuildRequires:	pkgconfig(lcms2)
 Requires:	cups
 
 %description
