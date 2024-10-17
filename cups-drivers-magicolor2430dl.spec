@@ -6,7 +6,7 @@ Version:	1.6.1
 Release:	29
 License:	GPLv2
 Group:		System/Printing
-URL:		http://printer.konicaminolta.net/
+URL:		https://printer.konicaminolta.net/
 Source0:	magicolor2430DL-%{version}.tar.gz
 
 Patch0:		magicolor2430DL-shared_system_libs.diff
