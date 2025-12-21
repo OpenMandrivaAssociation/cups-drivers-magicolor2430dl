@@ -14,6 +14,11 @@ Patch1:		magicolor2430DL-1.6.1-automake-1.13.patch
 Patch2:		magicolor2430DL-1.6.1-cups-2.2.patch
 Patch3:		magicolor2430DL-1.6.1-lcms2.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	cups-devel
 BuildRequires:	jbig-devel
 BuildRequires:	pkgconfig(lcms2)
